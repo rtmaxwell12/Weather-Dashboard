@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header class="h1-container d-flex translate-middle bg-dark justify-content-center">
+         <h1 class="h1 text-light">5 Day Weather Forecast</h1>    
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 bg-light">
+                <form class="mt-1">Search for a City:</h5>
+                    <div class="input-group mb-3">
+                        <input id="enter-city" type="text" class="form-control" placeholder="Enter a city" aria-label="Enter a city">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                <form id="history"></form>
+            </div>
+            <div class="col-lg-9">
+                <div class="row mr-0">
+                    <div class="col-lg-11 card m-3 d-none" id="today-weather">
+                        <div class="card-body">
+                            <h3 id="city-name" class="city-name align-middle"></h3>
+                            <img id="weather-icon" alt="">
+                            <p id="temperature"></p>
+                            <p id="humidity"></p>
+                            <p id="wind-speed"></p>
+                            <p id="date"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-none" id="fiveday-header">
+                    <div class="col-12">
+                        <h3>5-Day Forecast</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                    <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
