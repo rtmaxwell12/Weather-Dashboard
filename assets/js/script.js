@@ -58,3 +58,43 @@ function handelSearchFromSubmit(event) {
     var saveSearch = function(){
         localStorage.setItem("cities", JSON.stringify(cities));
     };
+
+      function renderCities() {
+        var citiesArray = JSON.parse(localStorage.getItem("Cities", cities));
+        if (!row1.children[1]) {
+            cityList.setAttribute(
+                "style",
+                "list-style: none; padding-left: 0; margin-top: 1rem;")
+                row1.appendChild(cityListContainer);
+                cityListContainer.appendChild(cityList);
+              }
+              for (var i = 0; i < citiesArray.length; i++) {
+                var listCity = document.createElement("button");
+                listCity.setAttribute("class", "border border-dark-subtle mt-2 list-button");
+                listCity.textContent = citiesArray[i];
+                cityList.appendChild(listCity);
+            }
+        }
+    })
+}
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    container.innerHTML = "";
+    Promise.all([current(), forecast()]).then(() => list());
+  
+  });
+  
+  row1.addEventListener("click", function(event) {
+    var element = event.target;
+    if (element.matches(".list-button")) {
+      container.innerHTML = "";
+      searchBox.value = element.textContent;
+      console.log(searchBox.value);
+      current();
+      forecast();
+    }
+  })
+  if (JSON.parse(localStorage.getItem("Cities", cities)) !== null) {
+    renderCities();
+  }
